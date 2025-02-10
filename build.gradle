@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    implementation group: 'org.graalvm.js', name: 'js-scriptengine', version: '24.1.1'
+    implementation group: 'org.graalvm.polyglot', name: 'js', version: '24.1.1'
+
+
+    //implementation group: 'rhino', name: 'js', version: '1.7R2'
+}
+
+
+
+//https://hg.mozilla.org/mozilla-central/raw-file/tip/netwerk/base/ascii_pac_utils.js
+test {
+    useJUnitPlatform()
+}
